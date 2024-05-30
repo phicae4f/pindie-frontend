@@ -2,9 +2,15 @@ import Link from "next/link";
 import { Card } from "../Card/Card";
 import Styles from "./CardsListSection.module.css";
 
+
 export const CardsList = (props) => {
+
+
   return (
-    <ul className={Styles["cards-list"]}>
+<>    
+{ props.data instanceof Array ?
+
+<ul className={Styles["cards-list"]}>
       {props.data.map((item) => {
         return (
           <li className={Styles["cards-list__item"]} key={item.id}>
@@ -17,5 +23,9 @@ export const CardsList = (props) => {
         );
       })}
     </ul>
+:
+<p>Данных нет </p> 
+}
+</>
   );
 };
